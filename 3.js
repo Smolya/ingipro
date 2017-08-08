@@ -8,9 +8,7 @@ function compare(a, b) {
 }
 
 function f(arr1, arr2) {
-    let mergerLine;
-
-    mergerLine = arr1.slice();
+    const mergerLine = arr1.slice();
 
     for (let i = 0; i < arr2.length; i++) {
         if (mergerLine.indexOf(arr2[i]) === -1) {
