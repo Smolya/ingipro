@@ -1,15 +1,14 @@
 "use strict";
 
 function randomNumber() {
-    let maxTime = 10000;        //max value of random interval
+    const MAX_TIME = 10000;        //max value of random interval
+    const START_TIME = Date.now();
+    const RAND_INTERVAL = Math.random()*MAX_TIME;
+    const END_TIME = START_TIME + RAND_INTERVAL;
+    let curTime = Date.now();
 
-    let startTime = new Date().getTime();
-    let randInterval = Math.random()*maxTime;
-    let endTime = startTime+randInterval;
-    let curTime = new Date().getTime();
-
-    while( curTime < endTime ) {
-        curTime = new Date().getTime();
+    while( curTime < END_TIME ) {
+        curTime = Date.now();
     }
     return Math.random()*10;
 }
