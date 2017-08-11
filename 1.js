@@ -3,7 +3,8 @@
 const arr = [1, 2, 3, 4, 5];
 
 function drop(arr, i) {
-    let outArr = arr;
+    const outArr = arr;
+
     outArr.splice(i, 1);
 
     return outArr;
