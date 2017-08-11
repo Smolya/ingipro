@@ -3,10 +3,6 @@
 const arr1 = [1, 2, 3, 4, 5];
 const arr2 = [1, 5, 6, 7];
 
-function compare(a, b) {
-    return a - b;
-}
-
 function f(arr1, arr2) {
     const mergerLine = arr1.slice();
 
@@ -16,8 +12,7 @@ function f(arr1, arr2) {
         }
     }
 
-    mergerLine.sort(compare);
-    console.log(mergerLine);
+    return mergerLine;
 }
 
-f(arr1, arr2);
+console.log( f(arr1, arr2) );
