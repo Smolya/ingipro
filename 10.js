@@ -2,23 +2,29 @@
 
 const str = "AAAABBBCCXYZDDDDEEEFFFAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBBB";
 
+function replacer(str) {
+    if(str.length === 1) {
+        return str;
+    }
+    else {
+        return str[1] + str.length;
+    }
+}
 
 function rle(str) {
-    let outStr = "";
+    let outStr;
     let curNum = 1;
 
-    if ( str.match(/[^A-Z]/) ) return "Error. Please, type a correct string: [A-Z]";
-    for (let i = 0; i < str.length; i++) {
-        if (str[i] === str[i + 1]) {
-            curNum++;
-        }
-        else {
-            if (curNum === 1) outStr = outStr + str[i];
-            else outStr = outStr + str[i] + curNum;
-
-            curNum = 1;
+    try {                                   //Check on Errors
+        if (str.match(/[^A-Z]/)) {
+            throw new SyntaxError("Error. Please, type a correct string: [A-Z]");
         }
     }
+    catch (e) {
+        return e;
+    }
+
+    outStr = str.replace(/([A-Z])\1+/g, replacer);
 
     return outStr;
 }
