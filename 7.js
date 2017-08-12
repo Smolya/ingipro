@@ -16,4 +16,4 @@ function getObject(arr) {
     return outObject;
 }
 
-console.log(getObject(arr));
+console.log( getObject(arr) );
