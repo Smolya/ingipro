@@ -27,15 +27,22 @@ const lev = {
     }]
 }
 
-function getAvatar(human) {
-    if ( human.friends[0] === undefined || human.friends[0].avatar.url == 0 ) {
-        return "http://default/url/to/avatar";
+function getAvatar(human, inUrl, defaultUrl) {
+    const url = inUrl.split('.');
+    let result = human;
+
+    for (let i = 0; i < url.length; i++) {
+        if (result === undefined) {
+            return defaultUrl;
+        }
+            result = result[url[i]];
     }
-    else {
-        return human.friends[0].avatar.url;
+    if (result == 0) {          // Не загрузил фото: url = '';
+        return defaultUrl;
     }
+    return result;
 }
 
-console.log( getAvatar(mike) );
-console.log( getAvatar(german) );
-console.log( getAvatar(lev) );
+console.log( getAvatar(mike, "friends.0.avatar.url", "http://default/url/to/avatar") );
+console.log( getAvatar(german, "friends.0.avatar.url", "http://default/url/to/avatar") );
+console.log( getAvatar(lev, "friends.0.avatar.url", "http://default/url/to/avatar") );
