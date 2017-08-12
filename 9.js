@@ -4,14 +4,9 @@ const str = '{ "name": "Вася", "age": 35, "isAdmin": false, "friends": { "na
 const val = JSON.parse(str);
 
 function deepCopy(val) {
-    var clone = {};
+    const clone = {};
     for (let key in val) {
-        if ( typeof(val[key]) === "object" ) {
-            clone[key] = deepCopy(val[key]);
-        }
-        else {
-            clone[key] = val[key];
-        }
+        clone[key] = ( val[key] instanceof Object ) ? deepCopy(val[key]) : val[key];
     }
 
     return clone;
@@ -19,5 +14,5 @@ function deepCopy(val) {
 
 const copy = deepCopy(val);
 
-console.log( copy );
-console.log( val );
+console.log(copy);
+console.log(val);
