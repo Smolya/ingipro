@@ -3,12 +3,9 @@
 */
 
 function reverseString(str) {
-    let outStr = "";
-    for (let i = str.length; i > 0; i--) {
-        outStr = outStr + str[i-1];
-    }
+    const outStr = str.split('');
 
-    return outStr;
+    return outStr.reverse().join('');
 }
 
 console.log( reverseString("hello") ); // "olleh"
