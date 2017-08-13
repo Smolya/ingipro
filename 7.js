@@ -45,19 +45,16 @@ const LIBRARY = [
 ];
 
 
-function sortLibrary(library, field_name, reverse, initial) {
+function sortLibrary(library, field_name, reverse, initial = parseInt) {
     let sortLibrary = library;
 
     sortLibrary.sort( function (a, b) {
-        return (initial === undefined) ? ( a[field_name] - b[field_name] ) :
-                                         ( initial(a[field_name]) - initial(b[field_name]) );
+        return (reverse) ?
+            ( initial( b[field_name] ) - initial( a[field_name] ) ) :       //reverse
+            ( initial( a[field_name] ) - initial( b[field_name] ) );        //straight
     } );
 
-    if (reverse === true) {
-        sortLibrary.reverse();
-    }
-
-    console.log (sortLibrary);
+    return sortLibrary;
 }
 
-sortLibrary(LIBRARY, 'libraryID', true, parseInt);
+console.log( sortLibrary(LIBRARY, 'libraryID', true, parseInt) );
