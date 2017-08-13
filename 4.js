@@ -6,23 +6,26 @@
 
 function sumAll(arr) {
     let sum = 0;
-    let sumOfNumbersThrow = [];
-    let i = arr[0];
+    let i;
+    let rightNum;
+    let leftNum;
 
-
-    while ( ( arr[0] < arr[1] ) ? ( i <= arr[1] ) : ( i >= arr[1] ) ) {
-        sum += i;
-        sumOfNumbersThrow.push(i);
-
-        if (arr[0] < arr[1]) {
-            i++;
-        }
-        else {
-            i--;
-        }
+    if (arr[0] < arr[1]) {
+        leftNum = arr[0];
+        rightNum = arr[1];
+        i = leftNum;
+    }
+    else {
+        leftNum = arr[1];
+        rightNum = arr[0];
+        i = leftNum;
     }
 
-    console.log(sumOfNumbersThrow);
+    while ( i <= rightNum ) {
+        sum += i;
+        i++;
+    }
+
     return sum;
 }
 
