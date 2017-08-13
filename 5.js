@@ -7,14 +7,12 @@
 function myReplace(str, before, after) {
     let outStr = str;
     let changeAfter = after;
-    let expr = new RegExp(before, "g");
+    const expr = new RegExp(before, "g");
+    const firstUpperChar = before[0].toUpperCase();
 
-    if(before.charCodeAt(0) >= 0x0041 && before.charCodeAt(0) <= 0x005A) {
-        changeAfter = changeAfter[0].toUpperCase() + changeAfter.slice(1);
-    }
-    else {
-        changeAfter = changeAfter[0].toLowerCase() + changeAfter.slice(1);
-    }
+    changeAfter = (before[0] === firstUpperChar) ?
+        changeAfter[0].toUpperCase() + changeAfter.slice(1) :
+        changeAfter;
 
     outStr = outStr.replace(expr, changeAfter);
 
