@@ -4,7 +4,7 @@
 "use strict";
 
 function invert_key_value(obj) {
-    let newObj = {};
+    const newObj = {};
 
     for (let key in obj) {
         newObj[obj[key]] = key;
