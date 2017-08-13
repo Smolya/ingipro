@@ -4,33 +4,12 @@
 "use strict";
 
 function palindrome(str) {
-    let leftPos = 0;
-    let rightPos = str.length - 1;
+    const straightLine = str.replace(/ /g, '').toLowerCase();
+    const reverseLine = straightLine.split('').reverse().join('');
 
-    while (true) {
-        if( rightPos === ( Math.floor(str.length / 2) - 1) ) {
-            break;
-        }
-
-        if(str[leftPos] === " ") {
-            leftPos++;
-        }
-        if(str[rightPos] === " ") {
-            rightPos--;
-        }
-
-        if(str[leftPos].toLowerCase() === str[rightPos].toLowerCase()) {
-            leftPos++;
-            rightPos--;
-            continue;
-        }
-        else {
-            return false;
-        }
-    }
-
-    return true;
+    return (reverseLine === straightLine) ? true : false;
 }
+
 
 console.log( palindrome("eye") ); // true
 console.log( palindrome("hello") ); // false
