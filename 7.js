@@ -45,7 +45,7 @@ const LIBRARY = [
 ];
 
 
-function sortLibrary(library, field_name, reverse, initial = parseInt) {
+function sortLibrary(library, field_name, reverse, initial = value => value) {
     let sortLibrary = library;
 
     sortLibrary.sort( function (a, b) {
