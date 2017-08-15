@@ -4,7 +4,7 @@
 "use strict";
 
 function chunkArrayInGroups(arr, size) {
-    const copyArr = arr;
+    const copyArr = Array.from(arr);
     const outArr = [];
     const lSize = (size === 0) ? arr.length : size;         //Если 0, то так же как и для arr.length
     const numOfChunks = arr.length / lSize;
@@ -16,4 +16,4 @@ function chunkArrayInGroups(arr, size) {
     return outArr;
 }
 
-console.log( chunkArrayInGroups(["a", "b", "c", "d"], 0) ); // [["a", "b"], ["c", "d"]]
+console.log( chunkArrayInGroups(["a", "b", "c", "d"], 2) ); // [["a", "b"], ["c", "d"]]
