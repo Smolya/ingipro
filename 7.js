@@ -46,7 +46,7 @@ const LIBRARY = [
 
 
 function sortLibrary(library, field_name, reverse, initial = value => value) {
-    let sortLibrary = library;
+    let sortLibrary = Array.from(library);
 
     sortLibrary.sort( function (a, b) {
         return (reverse) ?
@@ -58,3 +58,4 @@ function sortLibrary(library, field_name, reverse, initial = value => value) {
 }
 
 console.log( sortLibrary(LIBRARY, 'libraryID', true, parseInt) );
+console.log(LIBRARY);
