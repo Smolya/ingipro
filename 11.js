@@ -16,6 +16,6 @@ function sum(a) {
     return f;
 }
 
-console.log( +sum(1) );       // => 1
-console.log( +sum(1)(2) );    // => 3
-console.log( +sum(1)(2)(3) ); // => 6
+console.log( sum(1).toString() );       // => 1
+console.log( +sum(1)(2).toString() );    // => 3
+console.log( +sum(1)(2)(3).toString() ); // => 6
