@@ -3,12 +3,7 @@
 const str = "AAAABBBCCXYZDDDDEEEFFFAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBBB";
 
 function replacer(str) {
-    if(str.length === 1) {
-        return str;
-    }
-    else {
-        return str[1] + str.length;
-    }
+    return (str.length === 1) ? str : (str[1] + str.length) ;
 }
 
 function rle(str) {
