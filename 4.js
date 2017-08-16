@@ -5,23 +5,15 @@
 "use strict";
 
 function sumAll(arr) {
+    const rightArr = Array.from(arr);
     let sum = 0;
     let i;
-    let rightNum;
-    let leftNum;
 
-    if (arr[0] < arr[1]) {
-        leftNum = arr[0];
-        rightNum = arr[1];
-        i = leftNum;
-    }
-    else {
-        leftNum = arr[1];
-        rightNum = arr[0];
-        i = leftNum;
-    }
+    rightArr.sort( (a, b) => a - b );
 
-    while ( i <= rightNum ) {
+    i = rightArr[0];
+
+    while ( i <= rightArr[1] ) {
         sum += i;
         i++;
     }
