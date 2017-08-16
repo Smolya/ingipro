@@ -12,7 +12,7 @@ function wrap(string, lengthStr) {
             startString = startString.slice(lengthCut + 1);
         }
         else {
-            if (startString.length < lengthStr) {
+            if (startString.length <= lengthStr) {
                 outString += startString.substr(0, startString.length);
                 break;
             }
@@ -26,5 +26,6 @@ function wrap(string, lengthStr) {
     return outString;
 }
 
+console.log( wrap("мама мыла раму", 2) );
 console.log( wrap("мама мыла раму", 11) ); // "мама мыла\nраму"
 console.log( wrap("экскурсия", 4) ); // экск\nурси\nя
