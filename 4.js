@@ -6,7 +6,6 @@ const testOrder2 = [1,1,2,-2,5,2,4,4,-1,-2,5];
 
 function getOdd(testOrder) {
     const sortOrder = testOrder.sort( (a, b) => a - b );		//Сортируем массив
-    let oddNum;								//Выходной массив нечетных чисел
     let curN;
     let amount = 1;
 
@@ -17,13 +16,13 @@ function getOdd(testOrder) {
         }
         else {										//Закончилось повторение чисел -> считаем количество - четное или нет.
             if( amount % 2 ) {
-                oddNum = curN;
+                return curN;
             }
             amount = 1;
         }
     }
 
-    return oddNum;
+    return null;
 }
 
 console.log(getOdd(testOrder1));
