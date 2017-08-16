@@ -8,13 +8,22 @@
 
 "use strict";
 
-const town = prompt("Please, enter a city", "Moscow");
+function getTownTime(town) {
+    let time = new Date;
+    time.setMilliseconds ( (town.sys.sunset - town.sys.sunrise) );
+    return `${ time.getHours() }:${ time.getMinutes() }:${ time.getSeconds() }`;
+}
 
-fetch(`http://api.openweathermap.org/data/2.5/weather?q=${town}&units=metric&appid=bd5e378503939ddaee76f12ad7a97608`)
-    .then(function(response) {
-        return response.json();
-    })
-    .then(function(town) {
-        alert(`Температура: ${town.main.temp}\nСкорость ветра в м/с: ${town.wind.speed}\nПродолжительность дня: ${ (town.sys.sunset-town.sys.sunrise) / 3600 }`);
-    })
-    .catch(alert);
+function getWeather(town) {
+    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${town}&units=metric&appid=bd5e378503939ddaee76f12ad7a97608`)
+        .then( response => response.json() )
+        .then(function(town) {
+            const time = getTownTime(town);
+            console.log(`Температура: ${town.main.temp}\nСкорость ветра в м/с: ${town.wind.speed}\nПродолжительность дня: ${time}`);
+        })
+        .catch( error => {
+                            console.error('Fetch error: ' + error.message);
+        });
+}
+
+getWeather('Moscow');
