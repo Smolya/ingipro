@@ -26,7 +26,7 @@ initial(value)
 */
 "use strict";
 
-const LIBRARY = [
+const library = [
     {
         title: 'Bill Gates',
         author: 'The Road Ahead',
@@ -46,9 +46,9 @@ const LIBRARY = [
 
 
 function sortLibrary(library, field_name, reverse, initial = value => value) {
-    let sortLibrary = Array.from(library);
+    const sortLibrary = Array.from(library);
 
-    sortLibrary.sort( function (a, b) {
+    sortLibrary.sort( (a, b) => {
         return (reverse) ?
             ( initial( b[field_name] ) - initial( a[field_name] ) ) :       //reverse
             ( initial( a[field_name] ) - initial( b[field_name] ) );        //straight
@@ -57,5 +57,5 @@ function sortLibrary(library, field_name, reverse, initial = value => value) {
     return sortLibrary;
 }
 
-console.log( sortLibrary(LIBRARY, 'libraryID', true, parseInt) );
-console.log(LIBRARY);
+console.log( sortLibrary(library, 'libraryID', true, parseInt) );
+console.log('\n', library);
