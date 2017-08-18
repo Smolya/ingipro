@@ -42,9 +42,7 @@ function getNearbyCitiesJsonParams(params) {
             .then(function(circle) {
                 return circle.json();
             })
-            .catch( error => {
-                console.error('Fetch error: ' + error.message);
-            });
+            .catch( error => console.error('Fetch error: ' + error.message) );
 
 }
 
