@@ -14,7 +14,7 @@
 
 function getTownsApi(towns) {
     return towns.map( item => fetch(`http://api.openweathermap.org/data/2.5/weather?q=${item}
-									&units=metric&appid=bd5e378503939ddaee76f12ad7a97608`)
+            &units=metric&appid=bd5e378503939ddaee76f12ad7a97608`)
         .then(response => response.json())
 .catch( error => console.error('Fetch error: ' + error.message) ) );
 
